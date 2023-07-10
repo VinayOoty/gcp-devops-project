@@ -1,9 +1,9 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/gcpdevops:$SHORT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/gcpdevops-dev:$SHORT_SHA', '.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/gcpdevops:$SHORT_SHA']
+  args: ['push', 'gcr.io/$PROJECT_ID/gcpdevops-dev:$SHORT_SHA']
 
 - name: 'gcr.io/cloud-builders/gke-deploy'
   args:
@@ -11,5 +11,5 @@ steps:
   - --filename=gke.yaml
   - --cluster=gcp-devops-project
   - --location=us-central1-c
-  - --namespace=gke-devops-prod
-  - --image=gcr.io/$PROJECT_ID/gcpdevops:$SHORT_SHA
+  - --namespace=gke-devops-dev
+  - --image=gcr.io/$PROJECT_ID/gcpdevops-dev:$SHORT_SHA
