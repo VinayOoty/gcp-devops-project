@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: myapp
+        image: gcr.io/grafana-demo-project/gcpdevops
         ports:
         - containerPort: 8080
