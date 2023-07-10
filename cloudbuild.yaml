@@ -9,7 +9,7 @@ steps:
   args:
   - run
   - --filename=gke.yaml
-  - --cluster=gke-devops-project
+  - --cluster=gcp-devops-project
   - --location=us-central1-c
   - --namespace=gke-devops-prod
   - --image=gcr.io/$PROJECT_ID/gcpdevops:$SHORT_SHA
